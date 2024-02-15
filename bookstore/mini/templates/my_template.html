@@ -1,0 +1,79 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valid Url</title>
+</head>
+<body>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+  
+  {% if valid_url %}
+  <p>Valid URL: {{ valid_url }}</p>
+  {% endif %}
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valid URL</title>
+    
+    
+ <style>
+
+  form {
+      margin-bottom: 20px;
+  }
+  input[type="text"] {
+      width: 300px;
+      padding: 5px;
+      margin-right: 10px;
+  }
+  button[type="submit"] {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+  }
+  .error-message {
+      color: red;
+      margin-top: 5px;
+  }
+  .valid-url {
+      color: green;
+      margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit</button>
+</form>
+
+{% if valid_url %}
+<!-- <p class="valid-url">Valid URL: {{ valid_url }}</p> -->
+<p>Valid URL: <a href="{{ valid_url }}" target="_blank">{{ valid_url }}</a></p>
+{% endif %}
+<a href="{% url 'my_template' %}" class="back-button"> Go Back </a>
+
+</body>
+
+</html>
